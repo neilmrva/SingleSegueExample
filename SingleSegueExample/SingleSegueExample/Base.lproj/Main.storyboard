@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Default VC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SingleSegueExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Default VC" customClass="ViewController" customModule="SingleSegueExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,6 +21,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHv-We-isz">
                                 <rect key="frame" x="171.5" y="318.5" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="onNextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TtD-ui-rE0"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cE0-2f-H8b">
                                 <rect key="frame" x="137.5" y="280.5" width="100" height="30"/>
@@ -42,16 +45,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="textInput" destination="cE0-2f-H8b" id="1Ij-3J-pLN"/>
                         <segue destination="efW-Yw-IJS" kind="show" identifier="segueToSecondViewController" id="5b2-0C-z1I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="97" y="27"/>
         </scene>
-        <!--View Controller-->
+        <!--Second VC-->
         <scene sceneID="dcx-fi-vBH">
             <objects>
-                <viewController id="efW-Yw-IJS" sceneMemberID="viewController">
+                <viewController id="efW-Yw-IJS" userLabel="Second VC" customClass="SecondViewController" customModule="SingleSegueExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ab5-HA-bAy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,6 +75,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rqj-ta-Dqz"/>
                     </view>
+                    <connections>
+                        <outlet property="label" destination="c6r-XV-edg" id="cPr-Js-UO7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rb8-eD-geS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

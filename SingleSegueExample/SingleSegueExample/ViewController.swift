@@ -8,13 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+class ViewController: UIViewController
+{
+    @IBOutlet weak var textInput: UITextField!
+    
+    private enum Segue:String
+    {
+        case secondViewController = "segueToSecondViewController"
+    }
+    
+    @IBAction func onNextButtonPressed(_ sender: UIButton)
+    {
+        performSegue(withIdentifier: Segue.secondViewController.rawValue, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        if segue.identifier == Segue.secondViewController.rawValue
+        {
+            let secondViewController = segue.destination as! SecondViewController
+            secondViewController.textForLabel = textInput.text
+        }
     }
 
-
 }
-
